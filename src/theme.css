@@ -1,0 +1,20 @@
+:root {
+  --mat-sys-primary: light-dark(var(--color-red-400), var(--color-red-700));
+  --mat-sys-surface: light-dark(
+    var(--color-indigo-300),
+    var(--color-indigo-500)
+  );
+  --mat-sys-background: light-dark(
+    var(--color-violet-300),
+    var(--color-violet-500)
+  );
+
+  --mat-toolbar-container-background-color: light-dark(
+    var(--color-orange-200),
+    var(--color-orange-300)
+  );
+  --mat-sys-corner-full: light-dark(
+    var(--color-blue-200),
+    var(--color-blue-300)
+  );
+}

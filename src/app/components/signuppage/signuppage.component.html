@@ -1,0 +1,65 @@
+<div
+  id="background-signup"
+  class="flex h-full bg-gray-100 items-center justify-center"
+>
+  <div id="signupform" class="bg-white max-w-sm p-6 rounded-xl shadow-md">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <h2>Sign Up</h2>
+      <div id="nom-container">
+        <mat-form-field>
+          <mat-label>Nom</mat-label>
+          <input
+            matInput
+            formControlName="usersurnamesignup"
+            type="text"
+            placeholder="Nom"
+          />
+        </mat-form-field>
+      </div>
+      <div id="prenom-container">
+        <mat-form-field>
+          <mat-label>Prénom</mat-label>
+          <input
+            matInput
+            formControlName="usernamesignup"
+            type="text"
+            placeholder="prenom"
+          />
+        </mat-form-field>
+      </div>
+      <div id="nomdutilisateur-container">
+        <mat-form-field>
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input
+            matInput
+            formControlName="userpseudosignup"
+            type="text"
+            placeholder="pseudo"
+          />
+        </mat-form-field>
+      </div>
+      <div id="motdepasse-container">
+        <mat-form-field>
+          <mat-label>Mot de passe</mat-label>
+          <input
+            matInput
+            formControlName="motdepassesignup"
+            type="password"
+            placeholder="Mot de passe"
+          />
+        </mat-form-field>
+      </div>
+      <div id="genresignup">
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <mat-select>
+            @for (genre of listGenre; track genre) {
+            <mat-option [value]="genre.value">{{ genre.text }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-flat-button type="submit" class="w-full">S'inscrire</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!--formGroup peut etre nulle car il est initialisé au moment du subscribe
+ qui est asynchrone: le résultat de API ne vient pas tout de suite-->
+
+@if(formGroup!=null){
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit Todo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="mt-5" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div id="todo-detail-title">
+        <mat-form-field appearance="outline" class="w-60">
+          <input matInput formControlName="title" placeholder="abc" />
+        </mat-form-field>
+      </div>
+      <div id="todo-detail-saisie">
+        <mat-form-field class="w-60">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="w-60">
+          <mat-label>Priorité</mat-label>
+          <mat-select formControlName="priority">
+            @for(priority of listPriority; track priority.value) {
+            <mat-option [value]="priority.value">{{
+              priority.text
+            }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <mat-form-field class="w-60">
+            <mat-label>Date</mat-label>
+            <input
+              matInput
+              formControlName="dueDate"
+              [matDatepicker]="picker"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-checkbox formControlName="completed">completed</mat-checkbox>
+        </div>
+        <div>
+          <button mat-raised-button type="submit" (click)="onSubmit()">
+            save
+          </button>
+          <button mat-button type="button" (click)="onCancel()">cancel</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+}
